@@ -18,14 +18,14 @@ import java.util.Map;
  * Un catálogo es una colección de materiales bibliográficos con funcionalidades para contar y generar citas APA.
  */
 public class Catalogo extends MaterialBibliografico {
-    private List<Material_Bibliografico> materiales;
+    private List<MaterialBibliografico> materiales;
     
     /**
      * Constructor para crear un catálogo con información básica.
      *
      * @param nombre           El nombre del catálogo.
      * @param editorial        La editorial del catálogo.
-     * @param anioPublicacion  El año de publicación del catálogo.
+     * @param anioPublicacion  El anio de publicación del catálogo.
      * @param genero           El género o categoría del catálogo.
      * @param autor            El autor del catálogo.
      */
@@ -39,7 +39,7 @@ public class Catalogo extends MaterialBibliografico {
      *
      * @param material El material bibliográfico a agregar.
      */
-    public void agregarMaterial(Material_Bibliografico material) {
+    public void agregarMaterial(MaterialBibliografico material) {
         materiales.add(material);
     }
 
@@ -51,7 +51,7 @@ public class Catalogo extends MaterialBibliografico {
     public Map<String, Integer> contarPorGenero() {
         Map<String, Integer> conteoGenero = new HashMap<>();
 
-        for (Material_Bibliografico material : materiales) {
+        for (MaterialBibliografico material : materiales) {
             String genero = material.getGenero();
             conteoGenero.put(genero, conteoGenero.getOrDefault(genero, 0) + 1);
         }
@@ -67,7 +67,7 @@ public class Catalogo extends MaterialBibliografico {
     public Map<String, Integer> contarPorAutor() {
         Map<String, Integer> conteoAutor = new HashMap<>();
 
-        for (Material_Bibliografico material : materiales) {
+        for (MaterialBibliografico material : materiales) {
             String autor = material.getAutor();
             conteoAutor.put(autor, conteoAutor.getOrDefault(autor, 0) + 1);
         }
@@ -76,27 +76,28 @@ public class Catalogo extends MaterialBibliografico {
     }
 
     /**
-     * Cuenta la cantidad de materiales por año de publicación.
+     * Cuenta la cantidad de materiales por anio de publicación.
      *
-     * @return Un mapa que asocia años de publicación con la cantidad de materiales en el catálogo de ese año.
+     * @return Un mapa que asocia anios de publicación con la cantidad de materiales en el catálogo de ese anio.
      */
-    public Map<Integer, Integer> contarPorAño() {
-        Map<Integer, Integer> conteoAño = new HashMap<>();
+    public Map<Integer, Integer> contarPorAnio() {
+        Map<Integer, Integer> conteoanio = new HashMap<>();
 
-        for (Material_Bibliografico material : materiales) {
-            int año = material.getAñoPublicacion();
-            conteoAño.put(año, conteoAño.getOrDefault(año, 0) + 1);
+        for (MaterialBibliografico material : materiales) {
+            int anio = material.getAnioPublicacion();
+            conteoanio.put(anio, conteoanio.getOrDefault(anio, 0) + 1);
         }
 
-        return conteoAño;
+        return conteoanio;
     }
 
     /**
      * Genera citas APA para todos los materiales del catálogo y las muestra en la consola.
+     * @param generadorAPA
      */
-    public void generarCatalogo() {
-        for (Material_Bibliografico material : materiales) {
-            String citaAPA = Generador_APA.generarCitaAPA(material);
+    public void generarCatalogo(GeneradorAPA generadorAPA) {
+        for (MaterialBibliografico material : materiales) {
+            String citaAPA = GeneradorAPA.generarCitaAPA(material);
             System.out.println(citaAPA);
         }
     }

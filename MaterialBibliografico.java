@@ -12,7 +12,7 @@
  * Esta clase representa un material bibliográfico genérico con información básica.
  */
 public class MaterialBibliografico {
-    protected String nombre;
+    protected String nombre_material;
     protected String editorial;
     protected int anioPublicacion;
     protected String genero;
@@ -21,14 +21,14 @@ public class MaterialBibliografico {
     /**
      * Constructor para crear un nuevo material bibliográfico.
      *
-     * @param nombre           El nombre del material.
+     * @param nombre_material  El nombre del material.
      * @param editorial        La editorial del material.
      * @param anioPublicacion  El año de publicación del material.
      * @param genero           El género o categoría del material.
      * @param autor            El autor del material.
      */
-    public MaterialBibliografico(String nombre, String editorial, int anioPublicacion, String genero, String autor) {
-        this.nombre = nombre;
+    public MaterialBibliografico(String nombre_material, String editorial, int anioPublicacion, String genero, String autor) {
+        this.nombre_material = nombre_material;
         this.editorial = editorial;
         this.anioPublicacion = anioPublicacion;
         this.genero = genero;
@@ -40,17 +40,17 @@ public class MaterialBibliografico {
      *
      * @return El nombre del material.
      */
-    public String getNombre() {
-        return nombre;
+    public String getNombre_material() {
+        return nombre_material;
     }
 
     /**
      * Establece el nombre del material.
      *
-     * @param nombre El nuevo nombre del material.
+     * @param nombre_material El nuevo nombre del material.
      */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setnombre_material(String nombre_material) {
+        this.nombre_material = nombre_material;
     }
 
     /**
