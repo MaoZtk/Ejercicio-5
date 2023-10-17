@@ -14,23 +14,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Esta clase representa un catálogo de materiales bibliográficos que extiende la clase MaterialBibliografico.
+ * Esta clase representa un catálogo de materiales bibliográficos.
  * Un catálogo es una colección de materiales bibliográficos con funcionalidades para contar y generar citas APA.
  */
-public class Catalogo extends MaterialBibliografico {
+public class Catalogo {
     private List<MaterialBibliografico> materiales;
     
     /**
-     * Constructor para crear un catálogo con información básica.
-     *
-     * @param nombre           El nombre del catálogo.
-     * @param editorial        La editorial del catálogo.
-     * @param anioPublicacion  El anio de publicación del catálogo.
-     * @param genero           El género o categoría del catálogo.
-     * @param autor            El autor del catálogo.
+     * Constructor para crear un catálogo vacío.
      */
-    public Catalogo(String nombre, String editorial, int anioPublicacion, String genero, String autor){
-        super (nombre, editorial, anioPublicacion, genero, autor);
+    public Catalogo(){
         materiales = new ArrayList<>();
     } 
 
@@ -76,19 +69,19 @@ public class Catalogo extends MaterialBibliografico {
     }
 
     /**
-     * Cuenta la cantidad de materiales por anio de publicación.
+     * Cuenta la cantidad de materiales por año de publicación.
      *
-     * @return Un mapa que asocia anios de publicación con la cantidad de materiales en el catálogo de ese anio.
+     * @return Un mapa que asocia años de publicación con la cantidad de materiales en el catálogo de ese año.
      */
     public Map<Integer, Integer> contarPorAnio() {
-        Map<Integer, Integer> conteoanio = new HashMap<>();
+        Map<Integer, Integer> conteoAnio = new HashMap<>();
 
         for (MaterialBibliografico material : materiales) {
             int anio = material.getAnioPublicacion();
-            conteoanio.put(anio, conteoanio.getOrDefault(anio, 0) + 1);
+            conteoAnio.put(anio, conteoAnio.getOrDefault(anio, 0) + 1);
         }
 
-        return conteoanio;
+        return conteoAnio;
     }
 
     /**
@@ -97,7 +90,7 @@ public class Catalogo extends MaterialBibliografico {
      */
     public void generarCatalogo(GeneradorAPA generadorAPA) {
         for (MaterialBibliografico material : materiales) {
-            String citaAPA = GeneradorAPA.generarCitaAPA(material);
+            String citaAPA = generadorAPA.generarCitaAPA(material);
             System.out.println(citaAPA);
         }
     }

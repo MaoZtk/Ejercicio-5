@@ -11,7 +11,7 @@
 /**
  * Esta clase representa un material bibliográfico genérico con información básica.
  */
-public class MaterialBibliografico {
+public abstract class MaterialBibliografico {
     protected String nombre_material;
     protected String editorial;
     protected int anioPublicacion;
@@ -124,4 +124,5 @@ public class MaterialBibliografico {
     public void setAutor(String autor) {
         this.autor = autor;
     }
+    public abstract String generarCitaAPA();
 }
