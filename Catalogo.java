@@ -23,7 +23,8 @@ public class Catalogo {
     /**
      * Constructor para crear un catálogo vacío.
      */
-    public Catalogo(){
+    public Catalogo(String nombre, String editorial, int anioPublicacion, String genero, String autor){
+        super();
         materiales = new ArrayList<>();
     } 
 
