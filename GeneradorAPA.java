@@ -1,5 +1,8 @@
-class GeneradorAPA {
-    public static String generarCitaAPA(MaterialBibliografico material) {
+class GeneradorAPA extends MaterialBibliografico {
+    public GeneradorAPA() {
+        super(null, null, 0, null, null); // Llama al constructor de la superclase
+    }
+    public String generarCitaAPA(MaterialBibliografico material) {
         String referenciaAPA = "";
 
         if (material.getGenero().equals("Libro")) {
@@ -15,5 +18,10 @@ class GeneradorAPA {
         }
 
         return referenciaAPA;
+    }
+    @Override
+    public String generarCitaAPA() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'generarCitaAPA'");
     }
 }

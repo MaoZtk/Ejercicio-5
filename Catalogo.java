@@ -17,16 +17,22 @@ import java.util.Map;
  * Esta clase representa un catálogo de materiales bibliográficos.
  * Un catálogo es una colección de materiales bibliográficos con funcionalidades para contar y generar citas APA.
  */
-public class Catalogo {
+public class Catalogo extends MaterialBibliografico{
     private List<MaterialBibliografico> materiales;
     
     /**
      * Constructor para crear un catálogo vacío.
      */
-    public Catalogo(String nombre, String editorial, int anioPublicacion, String genero, String autor){
-        super();
+    public Catalogo() {
+        super(null, null, 0, null, null); // Llama al constructor de la superclase
         materiales = new ArrayList<>();
-    } 
+    }
+
+    public Catalogo(String nombre, String editorial, int anioPublicacion, String genero, String autor) {
+        super(nombre, editorial, anioPublicacion, genero, autor);
+        materiales = new ArrayList<>();
+    }
+
 
     /**
      * Agrega un material bibliográfico al catálogo.
@@ -95,4 +101,11 @@ public class Catalogo {
             System.out.println(citaAPA);
         }
     }
+
+    @Override
+    public String generarCitaAPA() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'generarCitaAPA'");
+    }
+
 }
